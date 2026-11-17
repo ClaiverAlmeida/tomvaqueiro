@@ -24,64 +24,7 @@ html { touch-action: manipulation; -webkit-text-size-adjust: 100%; text-size-adj
 }
 </style>
 <style>
-body{margin:0}
-a{color:inherit;text-decoration:none}a:hover{color:inherit}
-.chrome{font-family:'Archivo',sans-serif;font-weight:900;font-stretch:125%;line-height:1;color:transparent;-webkit-text-stroke:1.5px #2f343a;filter:drop-shadow(0 5px 4px rgba(0,0,0,.45))}
-.chrome{background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%),linear-gradient(180deg,#ffffff 0%,#e3e6ea 22%,#9aa0a8 44%,#5b6168 50%,#f5f7f9 56%,#c4c9cf 74%,#7d838b 100%);background-size:300% 100%,100% 100%;background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;animation:shine 4.5s ease-in-out infinite}
-@keyframes shine{0%,55%{background-position:120% 0,0 0}100%{background-position:-20% 0,0 0}}
-.m-beat{animation:beat .9s ease-in-out infinite;transform-origin:50% 60%}
-@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.022)}30%{transform:scale(1.004)}45%{transform:scale(1.014)}}
-.m-line{animation:glow 2.4s ease-in-out infinite}
-@keyframes glow{0%,100%{opacity:.45;box-shadow:0 0 0 rgba(246,135,31,0)}50%{opacity:1;box-shadow:0 0 12px rgba(246,135,31,.8)}}
-.m-note{opacity:0;animation:note 4.4s ease-in-out infinite}
-@keyframes note{0%{opacity:0;transform:translateY(20px) rotate(-10deg) scale(.8)}20%{opacity:.9}70%{opacity:.7}100%{opacity:0;transform:translateY(-120px) rotate(12deg) scale(1.05)}}
-.m-float{animation:float 3.6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.m-horse{transform-origin:40% 95%;animation:horse 1.8s ease-in-out infinite}
-@keyframes horse{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg) translateY(-3px)}}
-.m-shoe{transform-origin:50% 0;animation:shoe 2.2s ease-in-out infinite}
-@keyframes shoe{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
-.m-eq{transform-origin:right center;animation:eq .9s ease-in-out infinite}
-.m-eq.r{transform-origin:left center;animation-delay:-.45s}
-@keyframes eq{0%,100%{transform:scaleX(1)}25%{transform:scaleX(.45)}50%{transform:scaleX(.85)}75%{transform:scaleX(.6)}}
-.m-cta{animation:ctaglow 1.8s ease-in-out infinite,rise .7s ease-out .1s backwards}
-@keyframes ctaglow{0%,100%{box-shadow:0 10px 22px rgba(214,90,10,.28)}50%{box-shadow:0 12px 34px rgba(240,110,20,.55)}}
-.m-wave{transform-box:fill-box;transform-origin:center;animation:wave 2.6s ease-in-out infinite alternate}
-@keyframes wave{0%{transform:translateX(-8px) scaleY(.75)}100%{transform:translateX(8px) scaleY(1.25)}}
-.m-ring{position:absolute;inset:0;border-radius:50%;border:3px solid #FFFFFF;animation:ring 1.8s ease-out infinite}
-@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
-.m-play{animation:pop .9s ease-in-out infinite}
-@keyframes pop{0%,100%{transform:scale(1)}12%{transform:scale(1.08)}30%{transform:scale(1)}}
-.m-rise{animation:rise .7s ease-out backwards}
-@keyframes rise{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
-.m-chev{animation:nudge 1.6s ease-in-out infinite}
-@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
-.m-bob{animation:bob 1.8s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.06)}}
-.m-pulse{transform-origin:50% 85%;animation:pulse .9s ease-in-out infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}12%{transform:scale(1.012)}30%{transform:scale(1)}}
-.lnk{position:relative;overflow:hidden;transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease,filter .35s ease;will-change:transform}
-.lnk::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,190,120,.35),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0}
-.lnk:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 16px 30px rgba(214,90,10,.28)!important;filter:saturate(1.08)}
-.lnk:hover::after{animation:sweep .8s ease-out;opacity:1}
-@keyframes sweep{0%{left:-60%}100%{left:130%}}
-.lnk:active{transform:translateY(-1px) scale(.97);transition-duration:.12s}
-.lnk > svg:first-child,.lnk > svg:first-child + div,.lnk > svg:first-child + div + div{transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease}
-.lnk:hover > svg:first-child{animation:iconPop .7s cubic-bezier(.34,1.56,.64,1)}
-@keyframes iconPop{0%{transform:scale(1) rotate(0)}30%{transform:scale(1.22) rotate(-10deg)}55%{transform:scale(.94) rotate(6deg)}75%{transform:scale(1.08) rotate(-3deg)}100%{transform:scale(1) rotate(0)}}
-.lnk:hover > svg:first-child + div{transform:scaleY(1.35);box-shadow:0 0 12px rgba(246,135,31,.9)}
-.lnk:hover > svg:first-child + div + div{transform:translateX(6px)}
-.lnk:hover .m-chev{animation:nudgeFast .45s ease-in-out infinite}
-@keyframes nudgeFast{0%,100%{transform:translateX(0) scale(1.1)}50%{transform:translateX(9px) scale(1.25)}}
-.lnk:hover .m-play{animation:spinPop .8s cubic-bezier(.34,1.56,.64,1)}
-@keyframes spinPop{0%{transform:scale(1) rotate(0)}40%{transform:scale(1.2) rotate(120deg)}100%{transform:scale(1) rotate(360deg)}}
-.lnk:hover .m-ring{animation-duration:.9s}
-.lnk:hover .m-wave{animation-duration:.6s!important}
-.lnk:hover .m-bob{animation:wiggle .6s ease-in-out}
-@keyframes wiggle{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(-14deg) scale(1.2)}50%{transform:rotate(10deg) scale(1.15)}75%{transform:rotate(-5deg) scale(1.08)}}
-.still *{animation:none!important}
-.still .m-note{opacity:0}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}.m-note{opacity:0}}
+body {margin:0}a {color:inherit;text-decoration:none}a:hover {color:inherit}.chrome {font-family:'Archivo',sans-serif;font-weight:900;font-stretch:125%;line-height:1;color:transparent;-webkit-text-stroke:1.5px #2f343a;filter:drop-shadow(0 5px 4px rgba(0,0,0,.45))}.chrome {background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%),linear-gradient(180deg,#ffffff 0%,#e3e6ea 22%,#9aa0a8 44%,#5b6168 50%,#f5f7f9 56%,#c4c9cf 74%,#7d838b 100%);background-size:300% 100%,100% 100%;background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;animation:shine 4.5s ease-in-out infinite}@keyframes shine {0%, 55% {background-position:120% 0,0 0}100% {background-position:-20% 0,0 0}}.m-beat {animation:beat .9s ease-in-out infinite;transform-origin:50% 60%}@keyframes beat {0%, 100% {transform:scale(1)}12% {transform:scale(1.022)}30% {transform:scale(1.004)}45% {transform:scale(1.014)}}.m-line {animation:glow 2.4s ease-in-out infinite}@keyframes glow {0%, 100% {opacity:.45;box-shadow:0 0 0 rgba(246,135,31,0)}50% {opacity:1;box-shadow:0 0 12px rgba(246,135,31,.8)}}.m-note {opacity:0;animation:note 4.4s ease-in-out infinite}@keyframes note {0% {opacity:0;transform:translateY(20px) rotate(-10deg) scale(.8)}20% {opacity:.9}70% {opacity:.7}100% {opacity:0;transform:translateY(-120px) rotate(12deg) scale(1.05)}}.m-float {animation:float 3.6s ease-in-out infinite}@keyframes float {0%, 100% {transform:translateY(0)}50% {transform:translateY(-6px)}}.m-horse {transform-origin:40% 95%;animation:horse 1.8s ease-in-out infinite}@keyframes horse {0%, 100% {transform:rotate(-3deg)}50% {transform:rotate(4deg) translateY(-3px)}}.m-shoe {transform-origin:50% 0;animation:shoe 2.2s ease-in-out infinite}@keyframes shoe {0%, 100% {transform:rotate(-5deg)}50% {transform:rotate(5deg)}}.m-eq {transform-origin:right center;animation:eq .9s ease-in-out infinite}.m-eq.r {transform-origin:left center;animation-delay:-.45s}@keyframes eq {0%, 100% {transform:scaleX(1)}25% {transform:scaleX(.45)}50% {transform:scaleX(.85)}75% {transform:scaleX(.6)}}.m-cta {animation:ctaglow 1.8s ease-in-out infinite,rise .7s ease-out .1s backwards}@keyframes ctaglow {0%, 100% {box-shadow:0 10px 22px rgba(214,90,10,.28)}50% {box-shadow:0 12px 34px rgba(240,110,20,.55)}}.m-wave {transform-box:fill-box;transform-origin:center;animation:wave 2.6s ease-in-out infinite alternate}@keyframes wave {0% {transform:translateX(-8px) scaleY(.75)}100% {transform:translateX(8px) scaleY(1.25)}}.m-ring {position:absolute;inset:0;border-radius:50%;border:3px solid #FFFFFF;animation:ring 1.8s ease-out infinite}@keyframes ring {0% {transform:scale(1);opacity:.8}100% {transform:scale(1.6);opacity:0}}.m-play {animation:pop .9s ease-in-out infinite}@keyframes pop {0%, 100% {transform:scale(1)}12% {transform:scale(1.08)}30% {transform:scale(1)}}.m-rise {animation:rise .7s ease-out backwards}@keyframes rise {0% {opacity:0;transform:translateY(30px)}100% {opacity:1;transform:translateY(0)}}.m-chev {animation:nudge 1.6s ease-in-out infinite}@keyframes nudge {0%, 100% {transform:translateX(0)}50% {transform:translateX(6px)}}.m-bob {animation:bob 1.8s ease-in-out infinite}@keyframes bob {0%, 100% {transform:translateY(0) scale(1)}50% {transform:translateY(-5px) scale(1.06)}}.m-pulse {transform-origin:50% 85%;animation:pulse .9s ease-in-out infinite}@keyframes pulse {0%, 100% {transform:scale(1)}12% {transform:scale(1.012)}30% {transform:scale(1)}}.lnk {position:relative;overflow:hidden;transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease,filter .35s ease;will-change:transform}.lnk::after {content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,190,120,.35),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0}.lnk:hover, .lnk.ativo {transform:translateY(-5px) scale(1.025);box-shadow:0 16px 30px rgba(214,90,10,.28)!important;filter:saturate(1.08)}.lnk:hover::after, .lnk.ativo::after {animation:sweep .8s ease-out;opacity:1}@keyframes sweep {0% {left:-60%}100% {left:130%}}.lnk:active {transform:translateY(-1px) scale(.97);transition-duration:.12s}.lnk > svg:first-child, .lnk > svg:first-child + div, .lnk > svg:first-child + div + div {transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease}.lnk:hover > svg:first-child, .lnk.ativo > svg:first-child {animation:iconPop .7s cubic-bezier(.34,1.56,.64,1)}@keyframes iconPop {0% {transform:scale(1) rotate(0)}30% {transform:scale(1.22) rotate(-10deg)}55% {transform:scale(.94) rotate(6deg)}75% {transform:scale(1.08) rotate(-3deg)}100% {transform:scale(1) rotate(0)}}.lnk:hover > svg:first-child + div, .lnk.ativo > svg:first-child + div {transform:scaleY(1.35);box-shadow:0 0 12px rgba(246,135,31,.9)}.lnk:hover > svg:first-child + div + div, .lnk.ativo > svg:first-child + div + div {transform:translateX(6px)}.lnk:hover .m-chev, .lnk.ativo .m-chev {animation:nudgeFast .45s ease-in-out infinite}@keyframes nudgeFast {0%, 100% {transform:translateX(0) scale(1.1)}50% {transform:translateX(9px) scale(1.25)}}.lnk:hover .m-play, .lnk.ativo .m-play {animation:spinPop .8s cubic-bezier(.34,1.56,.64,1)}@keyframes spinPop {0% {transform:scale(1) rotate(0)}40% {transform:scale(1.2) rotate(120deg)}100% {transform:scale(1) rotate(360deg)}}.lnk:hover .m-ring, .lnk.ativo .m-ring {animation-duration:.9s}.lnk:hover .m-wave, .lnk.ativo .m-wave {animation-duration:.6s!important}.lnk:hover .m-bob, .lnk.ativo .m-bob {animation:wiggle .6s ease-in-out}@keyframes wiggle {0%, 100% {transform:rotate(0) scale(1)}25% {transform:rotate(-14deg) scale(1.2)}50% {transform:rotate(10deg) scale(1.15)}75% {transform:rotate(-5deg) scale(1.08)}}.still * {animation:none!important}.still .m-note {opacity:0}@media (prefers-reduced-motion:reduce) {* {animation:none!important}.m-note {opacity:0}}
 </style>
 </head>
 <body>
@@ -101,8 +44,8 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit}
       <svg class="m-note" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E1A17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 790px; top: 250px; animation-delay: -3.3s"><path d="M9 18V5l10-2v13"></path><circle cx="6" cy="18" r="3" fill="#1E1A17"></circle><circle cx="16" cy="16" r="3" fill="#1E1A17"></circle></svg>
     </div>
 
-    <div class="m-float" style="position: absolute; left: 125px; top: 10px; width: 690px; height: 597px">
-      <img class="m-pulse" fetchpriority="high" decoding="async" src="./assets/artista.webp" alt="Tom Vaqueiro segurando uma caixa de som, com o logo Tom Vaqueiro" style="width: 690px; height: 597px; object-fit: contain; display: block; filter: drop-shadow(0 10px 14px rgba(90,40,0,.25))">
+    <div class="m-float" style="position: absolute; left: 166px; top: 10px; width: 610px; height: 608px">
+      <img class="m-pulse" fetchpriority="high" decoding="async" src="./assets/artista.webp" alt="Tom Vaqueiro segurando uma caixa de som, com o logo Tom Vaqueiro" style="width: 610px; height: 608px; object-fit: contain; display: block; filter: drop-shadow(0 10px 14px rgba(90,40,0,.25))">
     </div>
     <div style="position: absolute; left: 0; top: 628px; width: 941px; display: flex; align-items: center; justify-content: center; gap: 28px">
       <div class="m-eq" style="width: 96px; height: 3px; background: #F6871F"></div>
@@ -195,6 +138,37 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit}
   document.addEventListener('wheel', function (e) {
     if (e.ctrlKey || e.metaKey) e.preventDefault();
   }, { passive: false });
+
+  // Hover ao arrastar o dedo. No touch o :hover so entra depois do
+  // toque e fica grudado; aqui o card sob o dedo recebe .ativo e larga
+  // assim que o dedo sai. elementFromPoint usa coordenadas de tela e ja
+  // leva em conta o scale do canvas, entao nao precisa converter nada.
+  var ativo = null;
+
+  function marcar(el) {
+    if (ativo === el) return;
+    if (ativo) ativo.classList.remove('ativo');
+    ativo = el;
+    if (ativo) ativo.classList.add('ativo');
+  }
+
+  function sobODedo(toque) {
+    var el = document.elementFromPoint(toque.clientX, toque.clientY);
+    return el && el.closest ? el.closest('.lnk') : null;
+  }
+
+  ['touchstart', 'touchmove'].forEach(function (ev) {
+    document.addEventListener(ev, function (e) {
+      if (e.touches.length === 1) marcar(sobODedo(e.touches[0]));
+    }, { passive: true });
+  });
+
+  ['touchend', 'touchcancel'].forEach(function (ev) {
+    // segura um instante para o efeito ser visto antes de soltar
+    document.addEventListener(ev, function () {
+      setTimeout(function () { marcar(null); }, 180);
+    }, { passive: true });
+  });
 })();
 </script>
 </body>
