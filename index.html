@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Tom Vaqueiro — Links</title>
 <link rel="icon" href="./favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
@@ -13,6 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&amp;family=Barlow+Condensed:ital,wght@0,700;1,500&amp;family=Montserrat:ital,wght@0,500;0,700;1,500;1,800&amp;display=swap" rel="stylesheet">
 <style>
 html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #F8EADB }
+/* mata o zoom de duplo-toque; o pinch e barrado no script la embaixo */
+html { touch-action: manipulation; -webkit-text-size-adjust: 100%; text-size-adjust: 100% }
 #canvas {
   position: fixed;
   left: 50%;
@@ -172,6 +174,27 @@ a{color:inherit;text-decoration:none}a:hover{color:inherit}
   window.addEventListener('orientationchange', agendar);
   // as fontes do Google mudam metricas ao carregar; reajusta quando chegarem
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(agendar);
+
+  // Bloqueio de zoom. O Safari do iOS ignora user-scalable=no desde o
+  // iOS 10, entao o pinch precisa ser barrado no evento. Os listeners
+  // sao passive:false de proposito - sem isso o preventDefault nao vale.
+  ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (ev) {
+    document.addEventListener(ev, function (e) { e.preventDefault(); }, { passive: false });
+  });
+  document.addEventListener('touchmove', function (e) {
+    if (e.touches.length > 1) e.preventDefault();
+  }, { passive: false });
+  // duplo-toque: o touch-action cobre a maioria dos casos, isto pega o resto
+  var ultimo = 0;
+  document.addEventListener('touchend', function (e) {
+    var agora = e.timeStamp;
+    if (agora - ultimo < 300) e.preventDefault();
+    ultimo = agora;
+  }, { passive: false });
+  // ctrl/cmd + scroll no desktop
+  document.addEventListener('wheel', function (e) {
+    if (e.ctrlKey || e.metaKey) e.preventDefault();
+  }, { passive: false });
 })();
 </script>
 </body>
